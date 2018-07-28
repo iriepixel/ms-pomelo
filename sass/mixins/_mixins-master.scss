@@ -1,0 +1,99 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+@mixin animation() {
+	transition: all 0.3s;
+	-moz-transition: all 0.3s; /* Firefox 4 */
+	-webkit-transition: all 0.3s; /* Safari and Chrome */
+	-o-transition: all 0.3s; /* Opera */
+}
+
+@mixin title() {
+	font-size: 225%;
+	line-height: 1;
+	font-family: 'proxima_nova_rgbold';
+	color: $color__headline-text;
+}
+
+@mixin sub-title() {
+	font-size: 150%;
+	line-height: 1.2;
+	color: $color__headline-text;
+	@include bold;
+}
+
+@mixin bold() {
+	font-family: 'proxima_nova_rgbold';
+	font-weight: 300;
+}
+
+@mixin regular() {
+	font-family: 'proxima_nova_rgregular';
+}
+
+@mixin light() {
+	font-family: 'proxima_nova_rgregular';
+}
+
+@mixin block-padding() {
+	padding: 80px 10%;
+}
+
+@mixin tablet-block-padding() {
+	padding: 50px 5% !important;
+}
+
+@mixin button() {
+	display: block !important;
+	text-transform: uppercase !important;
+	text-decoration: none !important;
+	font-size: 16px !important;
+	color: #000000 !important;
+	height: 40px;
+	padding: 7px 37px !important;
+	border-radius: 0 !important;
+	border: 1px solid $color__button-color !important;
+	/* z-index: 999999; */
+	font-family: 'proxima_nova_rgbold' !important;
+	font-weight: 300 !important;
+}
+
+@mixin button-before{
+	position: absolute;
+	content: '';
+	border: 1px solid $color__button-color;
+	width: 100%;
+	height: 100%;
+	top: 3px;
+	left: 3px;
+	z-index: -1;
+	@include animation;
+}
+
+@mixin button-hover{
+	&::before
+	{
+		background-color: $color__button-color;
+	}
+}
