@@ -197,6 +197,9 @@ function woo_remove_product_tabs( $tabs ) {
  */
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
+// Remove cart suggestion
+remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display'); 
+
 /*remove * from phone number in woo checkout*/
 add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 );
 function wc_npr_filter_phone( $address_fields ) {
@@ -254,8 +257,46 @@ remove_action( 'admin_notices', 'woothemes_updater_notice' );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 
 /*change reviews order by date*/
-function wpa_filter_list_comments($args){
-  $args['reverse_top_level'] = true;
-  return $args;
+// function wpa_filter_list_comments($args){
+//   $args['reverse_top_level'] = true;
+//   return $args;
+// }
+// add_filter( 'woocommerce_product_review_list_args', 'wpa_filter_list_comments' );
+
+/**
+ * Optimize WooCommerce Scripts
+ * Remove WooCommerce Generator tag, styles, and scripts from non WooCommerce pages.
+ */
+add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
+
+function child_manage_woocommerce_styles() {
+  //remove generator meta tag
+  remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
+
+  //first check that woo exists to prevent fatal errors
+  if ( function_exists( 'is_woocommerce' ) ) {
+    //dequeue scripts and styles
+    if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
+      wp_dequeue_style( 'woocommerce_frontend_styles' );
+      wp_dequeue_style( 'woocommerce_fancybox_styles' );
+      wp_dequeue_style( 'woocommerce_chosen_styles' );
+      wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
+      wp_dequeue_script( 'wc_price_slider' );
+      wp_dequeue_script( 'wc-single-product' );
+      wp_dequeue_script( 'wc-add-to-cart' );
+      wp_dequeue_script( 'wc-cart-fragments' );
+      wp_dequeue_script( 'wc-checkout' );
+      wp_dequeue_script( 'wc-add-to-cart-variation' );
+      wp_dequeue_script( 'wc-single-product' );
+      wp_dequeue_script( 'wc-cart' );
+      wp_dequeue_script( 'wc-chosen' );
+      wp_dequeue_script( 'woocommerce' );
+      wp_dequeue_script( 'prettyPhoto' );
+      wp_dequeue_script( 'prettyPhoto-init' );
+      wp_dequeue_script( 'jquery-blockui' );
+      wp_dequeue_script( 'jquery-placeholder' );
+      wp_dequeue_script( 'fancybox' );
+      wp_dequeue_script( 'jqueryui' );
+    }
+  }
 }
-add_filter( 'woocommerce_product_review_list_args', 'wpa_filter_list_comments' );
