@@ -1,0 +1,38 @@
+.woocommerce-currency-switcher-form{
+	margin-bottom: 20px;
+	.wSelect-theme-classic.wSelect{
+		border: 1px solid #ABABAB !important;
+		border-radius: 0px !important;
+		padding: 5px 15px !important;
+		// margin-bottom: 10px;
+		height: 40px !important;
+		min-width: initial !important;
+    	max-width: initial !important;
+		color: #262626 !important;
+		text-transform: uppercase !important;
+		font-family: 'proxima_nova_rgregular' !important;
+		appearance: none !important;
+		background-color: transparent !important;
+	}
+	.wSelect .wSelect-arrow {
+		background: url(images/back-neutral-down.svg) no-repeat !important;
+		background-size: 15px !important;
+		background-position: center !important;
+	}
+	.wSelect-theme-classic .wSelect-options-holder {
+		top: 39px !important;
+		min-width: initial !important;
+    	max-width: initial !important;
+    	border-radius: 0px !important;
+	}
+	.wSelect-theme-classic .wSelect-options{
+		height: 95px !important;
+	}
+	.wSelect-selected,
+	.wSelect-option-value{
+		background-size: 20px !important;
+	}
+	.wSelect-theme-classic .wSelect-option-selected{
+		background-color: #794481 !important;
+	}
+}

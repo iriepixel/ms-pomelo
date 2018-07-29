@@ -111,6 +111,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 @import "woocommerce";
 
+@import "forms/currency-switcher";
+
 body {
     font-size: 120%;
     font-family: 'proxima_nova_ltlight';
@@ -147,6 +149,10 @@ a:focus {
     outline: 0;
     outline: none;
     text-decoration: none;
+}
+
+*:focus {
+    outline: none;
 }
 
 #page {
@@ -1667,7 +1673,7 @@ select {
     appearance: none;
     background: url(images/back-neutral-down.svg) no-repeat;
     background-size: 15px;
-    background-position: 94% center;
+    background-position: right 10px center;
     background-color: transparent;
 }
 
