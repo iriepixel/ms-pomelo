@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 wc_print_notices(); ?>
 
   <section class="row">
-    <div class="cell-900">
+    <div class="cell-1400">
       <div class="shop-content-grey-border">
         <div class="cart-empty-block">
 
