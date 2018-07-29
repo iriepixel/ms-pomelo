@@ -192,10 +192,10 @@ function woo_remove_product_tabs( $tabs ) {
 }
 
 /* Remove related prducts from product details page */
-add_filter('woocommerce_related_products_args','wc_remove_related_products', 10);
-function wc_remove_related_products( $args ) {
-  return array();
-}
+/**
+ * Remove related products output
+ */
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
 /*remove * from phone number in woo checkout*/
 add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 );
