@@ -207,6 +207,19 @@ function wc_npr_filter_phone( $address_fields ) {
 	return $address_fields;
 }
 
+// remove select2 country from checkout
+add_action( 'wp_enqueue_scripts', 'wsis_dequeue_stylesandscripts_select2', 100 );
+ 
+function wsis_dequeue_stylesandscripts_select2() {
+    if ( class_exists( 'woocommerce' ) ) {
+        wp_dequeue_style( 'selectWoo' );
+        wp_deregister_style( 'selectWoo' );
+ 
+        wp_dequeue_script( 'selectWoo');
+        wp_deregister_script('selectWoo');
+    } 
+} 
+
 /**
  * Place a cart icon with number of items and total cost in the menu bar.
  *
