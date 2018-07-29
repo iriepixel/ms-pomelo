@@ -68,20 +68,16 @@ if ( post_password_required() ) {
 
   <section class="row single-product-reviews-section">
     <div class="cell-1000 reviews-cell">
-        <?php 
-        $tabs = apply_filters( 'woocommerce_product_tabs', array() );
+        <?php $tabs = apply_filters( 'woocommerce_product_tabs', array() ); ?>
 
-        if ( ! empty( $tabs ) ) : ?>
-            <div class="read-reviews-button" id="read-reviews">Read reviews</div>
-            <div class="woocommerce-reviews wc-reviews-wrapper">
-                <?php foreach ( $tabs as $key => $tab ) : ?>
-                    <div class="panel entry-content wc-tab" id="tab-<?php echo esc_attr( $key ); ?>">
-                        <?php call_user_func( $tab['callback'], $key, $tab ); ?>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+        <div class="read-reviews-button" id="read-reviews">Read reviews</div>
+        <div class="woocommerce-reviews wc-reviews-wrapper">
 
-        <?php endif; ?>
+           <?php echo do_shortcode('[woocommerce_reviews]'); ?>
+
+        </div>
+
+        
     </div>
   </section>
 
@@ -172,4 +168,4 @@ if ( post_password_required() ) {
   ?>
 </div>
 
-<!-- <?php do_action( 'woocommerce_after_single_product' ); ?> -->
+<?php do_action( 'woocommerce_after_single_product' ); ?>
