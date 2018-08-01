@@ -288,74 +288,85 @@ mark
 }
 
 /* your orders */
-.shop_table,
-.cart_totals 
-{
-	border: none !important;
-
-	thead
-	{
-		color: $color__light-grey;
-
-		th
-		{
-			font-weight: 300 !important;
-			padding: 10px 0 !important;
-		}
-	}
-
-	tbody,
-	tfoot
-	{
-		tr
-		{
-			td,
-			th
-			{
-				padding: 10px 10px 10px 0 !important;
-				font-weight: 300 !important;
-			}
-		}
-	}
-	
-	table
-	{
-		a
-		{
-			color: $color__main-text;
-			font-family: 'proxima_nova_rgregular' !important;
-		}
-		
-		dl.variation dt
-		{
-			font-family: 'proxima_nova_rgregular' !important;
-			font-weight: 300 !important;
-		}
-
-		dl.variation dd
-		{
-			-webkit-margin-start: 0;
-		}
-	}
-
-	.cart-subtotal,
-	.shipping,
-	.order-total
-	{
-		th
-		{
-			text-transform: uppercase;
-			color: $color__light-grey;
-			text-align: left;
-			width: 45% !important;
-		}
-
-		td
-		{
-			text-align: right;
-		}
-	}
+.woocommerce td.product-name dl.variation{
+	font-size: 14px;
 }
+.woocommerce .cart-collaterals .cart_totals, .woocommerce-page .cart-collaterals .cart_totals{
+	width: 100% !important;
+}
+.woocommerce table.shop_table {
+	border: none !important;
+}
+.woocommerce-cart .cart-collaterals .cart_totals tr td{
+	text-align: right;
+}
+// .shop_table,
+// .cart_totals 
+// {
+
+// 	thead
+// 	{
+// 		color: $color__light-grey;
+
+// 		th
+// 		{
+// 			font-weight: 300 !important;
+// 			padding: 10px 0 !important;
+// 		}
+// 	}
+
+// 	tbody,
+// 	tfoot
+// 	{
+// 		tr
+// 		{
+// 			td,
+// 			th
+// 			{
+// 				padding: 10px 10px 10px 0 !important;
+// 				font-weight: 300 !important;
+// 			}
+// 		}
+// 	}
+	
+// 	table
+// 	{
+// 		a
+// 		{
+// 			color: $color__main-text;
+// 			font-family: 'proxima_nova_rgregular' !important;
+// 		}
+		
+// 		dl.variation dt
+// 		{
+// 			font-family: 'proxima_nova_rgregular' !important;
+// 			font-weight: 300 !important;
+// 		}
+
+// 		dl.variation dd
+// 		{
+// 			-webkit-margin-start: 0;
+// 		}
+// 	}
+
+// 	.cart-subtotal,
+// 	.shipping,
+// 	.order-total
+// 	{
+// 		th
+// 		{
+// 			text-transform: uppercase;
+// 			color: $color__light-grey;
+// 			text-align: left;
+// 			width: 45% !important;
+// 		}
+
+// 		td
+// 		{
+// 			text-align: right;
+// 		}
+// 	}
+// }
 
 /* order details */
 .woocommerce-view-order
