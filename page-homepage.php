@@ -32,7 +32,7 @@ get_header(); ?>
 				<section class="row homepage-shop-section">
 					<div class="cell">
 						<div class="shop-grid">
-							<?php echo do_shortcode("[wpv-view name='Homepage shop']"); ?>
+							<?php echo do_shortcode("[wpv-view name='Shop']"); ?>
 						</div>
 					</div>
 				</section>

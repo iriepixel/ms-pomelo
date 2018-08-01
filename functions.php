@@ -176,10 +176,36 @@ function mspomelo_additional_button() {
 }
 
 /*remove featured image from WooThumbs*/
-add_filter( 'jck-wt-all-image-ids', 'jck_filter_image_ids', 20, 2 );
-function jck_filter_image_ids( $image_ids, $id ) {
-    unset( $image_ids['featured'] );
-    return $image_ids;
+// add_filter('woocommerce_single_product_image_thumbnail_html', 'remove_featured_image', 10, 2);
+// function remove_featured_image($html, $attachment_id ) {
+//     global $post, $product;
+
+//     $featured_image = get_post_thumbnail_id( $post->ID );
+
+//     if ( $attachment_id == $featured_image )
+//         $html = '';
+
+//     return $html;
+// }
+
+
+// change default variation
+// add_filter( 'woocommerce_dropdown_variation_attribute_options_args', 'wc_remove_options_text');
+
+// function wc_remove_options_text( $args ){
+//     $args['show_option_none'] = 'SIZE';
+//     return $args;
+// }
+
+add_filter( 'woocommerce_attribute_label', 'custom_attribute_label', 10, 3 );
+
+function custom_attribute_label( $label, $name, $product ) {
+    $taxonomy = 'pa_'.$name;
+
+    if( $taxonomy == 'pa_size' )
+        $label .= '<div class="custom-label">' . __('MY TEXT', 'woocommerce') . '</div>';
+
+    return $label;
 }
 
 /* Remove tabs from product details page */
@@ -201,10 +227,16 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_r
 remove_action('woocommerce_cart_collaterals', 'woocommerce_cross_sell_display'); 
 
 /*remove * from phone number in woo checkout*/
-add_filter( 'woocommerce_billing_fields', 'wc_npr_filter_phone', 10, 1 );
-function wc_npr_filter_phone( $address_fields ) {
-	$address_fields['billing_phone']['required'] = false;
-	return $address_fields;
+add_filter( 'woocommerce_checkout_fields' , 'mspomelo_not_required_fields', 9999 );
+ 
+function mspomelo_not_required_fields( $f ) {
+ 
+  unset( $f['billing']['billing_phone']['required'] );
+ 
+  // the same way you can make any field required, example:
+  // $f['billing']['billing_company']['required'] = true;
+ 
+  return $f;
 }
 
 // remove select2 country from checkout

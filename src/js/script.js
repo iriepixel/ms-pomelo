@@ -21,7 +21,7 @@
         });
 
         /* label to placeholder */
-         $('.single-product-main-content .single_variation').appendTo('.single-product-main-content .mspomelo-share-size-guide');
+        // $('.single-product-main-content .single_variation').appendTo('.single-product-main-content .mspomelo-share-size-guide');
 
         /* search field slide */
         $('.search-form-slider-activator').click(function() {
@@ -29,19 +29,19 @@
         });
 
         /* amend product titles */
-        var productMainTtitle = $('.single-product .product_title').text();
-        if (productMainTtitle.indexOf('|') > -1) {
-            productMainTtitle = productMainTtitle.substring(0, productMainTtitle.indexOf("|") - 1);
-            $('.single-product .product_title').text(productMainTtitle);
-        }
+        // var productMainTtitle = $('.single-product .product_title').text();
+        // if (productMainTtitle.indexOf('|') > -1) {
+        //     productMainTtitle = productMainTtitle.substring(0, productMainTtitle.indexOf("|") - 1);
+        //     $('.single-product .product_title').text(productMainTtitle);
+        // }
 
-        $('.upsells h3, .shop-grid-title, .cross-sells h3').each(function() {
-            var productUpsellTtitle = $(this).text();
-            if (productUpsellTtitle.indexOf('|') > -1) {
-                productUpsellTtitle = productUpsellTtitle.substring(0, productUpsellTtitle.indexOf("|") - 1);
-                $(this).text(productUpsellTtitle);
-            }
-        });
+        // $('.upsells h3, .shop-grid-title, .cross-sells h3').each(function() {
+        //     var productUpsellTtitle = $(this).text();
+        //     if (productUpsellTtitle.indexOf('|') > -1) {
+        //         productUpsellTtitle = productUpsellTtitle.substring(0, productUpsellTtitle.indexOf("|") - 1);
+        //         $(this).text(productUpsellTtitle);
+        //     }
+        // });
 
         /* product description slide down */
         $( '.product-details-title' ).click(function() {
@@ -55,11 +55,11 @@
         $( 'select#pa_styles option:first-child' ).text('STYLE');
         $( 'select#pa_colors option:first-child' ).text('COLOR');
 
-        $( '.product-color-select select option' ).each(function() {
-            var str = $(this).text();
-            str = str.substring(str.indexOf("|") + 2);
-            $(this).text(str);
-        });
+        // $( '.product-color-select select option' ).each(function() {
+        //     var str = $(this).text();
+        //     str = str.substring(str.indexOf("|") + 2);
+        //     $(this).text(str);
+        // });
 
         /*product reviews*/
         $( '.read-reviews-button, .woocommerce-review-link' ).click(function() {

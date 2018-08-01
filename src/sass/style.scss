@@ -42,7 +42,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Media
     ## Captions
     ## Galleries
+
+// Foundation
 --------------------------------------------------------------*/
+@import "foundation";
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
@@ -620,9 +623,6 @@ header.site-header {
         .blog-list-item:hover {
             .blog-list-item-image {
                 img {
-                    -ms-transform: scale(1.1);
-                    -webkit-transform: scale(1.1);
-                    -moz-transform: scale(1.1);
                     transform: scale(1.1);
                 }
             }
@@ -631,18 +631,29 @@ header.site-header {
 }
 
 /* shop grid */
+.shop-grid--bra{
+    padding-bottom: 30px;
+}
+.shop-grid--brief{
+    padding: 15px;
+    border-top: 1px solid #D5D5D5;
+}
 .shop-grid {
-    .shop-grid-item:nth-child(even) {
-        margin: 0 1% 30px 0;
-    }
 
-    .shop-grid-item:nth-child(odd) {
-        margin: 0 0 30px 1%;
+    .shop-grid-item.shop-grid-item--bra{
+        // padding: 15px;
+    }
+    .shop-grid-item.shop-grid-item--brief{
+        padding: 15px;
+        .shop-grid-text-block{
+            .shop-grid-title {
+                font-size: 140%;
+            }
+        }
     }
 
     .shop-grid-item {
-        width: 49%;
-        float: left;
+        
         text-align: center;
         position: relative;
 
@@ -652,10 +663,8 @@ header.site-header {
 
             img {
                 display: block;
-                -webkit-backface-visibility: hidden;
-                -moz-backface-visibility: hidden;
-                -ms-backface-visibility: hidden;
                 backface-visibility: hidden;
+                transform: scale(1.01);
                 opacity: 1;
 
                 @include animation;
@@ -711,9 +720,6 @@ header.site-header {
         .shop-grid-image {
             img {
                 opacity: 0.4;
-                -ms-transform: scale(1.1);
-                -webkit-transform: scale(1.1);
-                -moz-transform: scale(1.1);
                 transform: scale(1.1);
             }
         }
@@ -2119,19 +2125,19 @@ footer {
     }
 
     /* shop grid */
-    .shop-grid {
-        .shop-grid-item:nth-child(even) {
-            margin: 5px 0;
-        }
+    // .shop-grid {
+    //     .shop-grid-item:nth-child(even) {
+    //         margin: 5px 0;
+    //     }
 
-        .shop-grid-item:nth-child(odd) {
-            margin: 5px 0;
-        }
+    //     .shop-grid-item:nth-child(odd) {
+    //         margin: 5px 0;
+    //     }
 
-        .shop-grid-item {
-            width: 100%;
-        }
-    }
+    //     .shop-grid-item {
+    //         width: 100%;
+    //     }
+    // }
 
     /* fitkit section */
     .fit-kit-section {
@@ -2454,13 +2460,16 @@ footer {
                 width: 100%;
 
                 .shop-grid-title {
-                    margin-bottom: 0px !important;
+                    // margin-bottom: 0px !important;
                     font-size: 180%;
                 }
 
                 .shop-grid-colors {
                     margin-top: 0 !important;
                     margin-bottom: 10px !important;
+                }
+                .shop-grid-sizes{
+                    display: none;
                 }
             }
         }

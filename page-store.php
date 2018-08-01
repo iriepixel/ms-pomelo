@@ -29,7 +29,8 @@ get_header(); ?>
 						</div>
 
 						<div class="shop-grid">
-							<?php echo do_shortcode("[wpv-view name='Shop']"); ?>
+              <?php echo do_shortcode("[wpv-view name='Shop']"); ?>
+							<?php echo do_shortcode("[wpv-view name='Briefs']"); ?>
 						</div>
 					</div>
 				</section>

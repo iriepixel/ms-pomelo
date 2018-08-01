@@ -43,63 +43,6 @@ foreach ($terms as $term)
     <p class="stock out-of-stock"><?php esc_html_e( 'This product is currently out of stock and unavailable.', 'woocommerce' ); ?></p>
   <?php else : ?>
 
-    <!-- add dropdownlist with available colors -->
-    <?php 
-
-      $args = array(
-          'post_type'             => 'product',
-          'post_status'           => 'publish',
-          'ignore_sticky_posts'   => 1,
-          'posts_per_page'        => '12',
-          'meta_query'            => array(
-              array(
-                  'key'           => '_visibility',
-                  'value'         => array('catalog', 'visible'),
-                  'compare'       => 'IN'
-              )
-          ),
-          'tax_query'             => array(
-              array(
-                  'taxonomy'      => 'product_cat',
-                  'field' => 'term_id', //This is optional, as it defaults to 'term_id'
-                  'terms'         => $product_cat_id,
-                  'operator'      => 'IN' // Possible values are 'IN', 'NOT IN', 'AND'.
-              )
-          )
-      );
-
-      
-
-
-      $products = new WP_Query($args);
-
-      $actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-      // The Loop
-      if ( $products->have_posts() ) {
-        echo '<div class="product-color-select"><select onChange="window.location.href=this.options[this.selectedIndex].value">';
-        while ( $products->have_posts() ) {
-          $products->the_post();
-
-          if($actual_link == get_permalink())
-          {
-            echo '<option value="' . get_permalink() . '" selected="true">' . get_the_title() . '</option>';
-          }
-          else
-          {
-            echo '<option value="' . get_permalink() . '">' . get_the_title() . '</option>';
-          }         
-        }
-        echo '</select></div>';
-      } else {
-        // no posts found
-      }
-      /* Restore original Post Data */
-      wp_reset_postdata();
-    ?>
-
-    <!-- add dropdownlist with available colors END-->
-
     <table class="variations" cellspacing="0">
       <tbody>
         <?php foreach ( $attributes as $attribute_name => $options ) : ?>
